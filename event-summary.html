@@ -9,13 +9,39 @@
 <body>
     <h1>Final DOM Event Hendlers</h1>
     <h3 id="hendler-status">Default Text</h3>
+    <p id="input-text-display">Default Input text</p>
+    <input id="input-field" type="text">
+    <button id="btn-update">Update</button>
+    <br>
+    <br>
     <button onclick="hendleOnClick()">Hendle Event Add onclick Function</button>
+    <button id="event-lisenter">Hendle event by addEventListener</button>
 
 
     <script>
         function hendleOnClick(){
-            console.log('button click');
+            const hendlerStatus = document.getElementById('hendler-status');
+            hendlerStatus.innerText = 'Hendled by function aftached on onclick attribute';
         }
+
+
+        // option 2
+        document.getElementById('event-lisenter').addEventListener('click', function(){
+            const hendlerStatus = document.getElementById('hendler-status');
+            hendlerStatus.innerText = 'Text updated by add Event listener button'
+        })
+
+
+        // option 2: recap
+        document.getElementById('btn-update').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+           const innerText = inputField.value;
+
+           const p = document.getElementById('input-text-display');
+           p.innerText = innerText;
+           inputField.value = '';
+        })
+
     </script>
 </body>
 </html>
